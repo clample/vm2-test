@@ -7,17 +7,12 @@ const vm = new NodeVM({
   require: {
     root: ['dir1'],
     external: [],
-    // context: 'sandbox'
+    context: 'sandbox'
   },
 });
-
-const script = `
-const value = require('./dir1/intermediate.js')
-console.log('It works', value)
-`
 
 console.log('Running from dir1')
 vm.run(`const value = require('./dir1/intermediate.js'); console.log('It works', value)`, 'main.js')
 
 console.log('Running from dir1/dir2')
-vm.run(`const value = require('./dir1/dir2/intermediate.js'); console.log('It works', value)`, 'main.js')
+vm.run(`const value = require('./dir1/dir2/intermediate.js'); console.log('It works', value)`, '/Users/clample/projects/vm2-parent-resolve-issue/main.js')
