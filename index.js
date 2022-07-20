@@ -1,9 +1,7 @@
 const {NodeVM} = require('vm2');
 const vm = new NodeVM({
   console: 'inherit',
-  nesting: false,
-  wrapper: 'commonjs',
-  
+  wrapper: 'commonjs',  
   require: {
     root: ['dir1'],
     external: [],
